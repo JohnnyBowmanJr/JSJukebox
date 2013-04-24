@@ -5,6 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
     <title>My Amazing SoundCloud Catalog</title>
     <script src="http://connect.soundcloud.com/sdk.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
   </head>
 
   <body>
@@ -18,8 +20,12 @@
 
     <script>
       SC.initialize({
-        client_id: 'd4c9ff1b3aaa3e397abbf4aa470e736e'
+        client_id: '0cf389018e9ee997f2efb4cfd530be77'
       });
+
+      function showInfo(song){
+        alert('try harder') 
+      }
 
       function doSearch() {
         var searchTerm = document.getElementById('search').value;
@@ -27,6 +33,24 @@
         // Search soundcloud for artists
         SC.get('/tracks', { q: searchTerm, license: 'cc-by-sa' }, function(tracks) {
           for(track in tracks) {
+            var catalog = document.getElementById("catalog");
+            var image = document.createElement("img");
+              image.setAttribute("src", (tracks[track]["artwork_url"]));
+            var box = document.createElement("div");
+              box.setAttribute("class", "box");
+            var title = document.createElement("p");
+              title.textContent = (tracks[track]["title"]);
+
+            box.onclick=showInfo(tracks[track])
+              
+            
+
+            if(tracks[track]["artwork_url"]) {
+              catalog.appendChild(box);
+                box.appendChild(image);
+                box.appendChild(title)
+              
+            }
             console.log(tracks[track]);
           }
         });
