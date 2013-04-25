@@ -28,15 +28,14 @@
        
 
       function showInfo(song){
-        console.log(this)
-        alert("Try harder")
-        // var infoDiv = createElement("div");
+        console.log(song)
+        alert("Woohoo fucking hoo it's a pop up ")
+        // var infoDiv = document.createElement("div");
         //   infoDiv.setAttribute("class", "info-box");
         
-
         // var infoUrl = document.createElement("p");
         // infoUrl.textContent = (song["permalink_url"]);
-        // this.appendChild(infoUrl);
+        // box.appendChild(infoUrl);
       }
 
       function doSearch() {
@@ -55,8 +54,8 @@
               catalog.appendChild(box);
                 box.appendChild(image);
                 box.appendChild(title);
-                box.setAttribute("onclick", "showInfo('tracks[track]')");
-
+                //box.setAttribute("onclick", (showInfo(tracks[track])));
+                box.setAttribute("onclick", "showInfo(tracks[track])");
               
             } 
 
