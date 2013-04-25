@@ -23,8 +23,20 @@
         client_id: '0cf389018e9ee997f2efb4cfd530be77'
       });
 
+      var box = document.createElement("div");
+        box.setAttribute("class", "box");
+       
+
       function showInfo(song){
-        alert('try harder') 
+        console.log(this)
+        alert("Try harder")
+        // var infoDiv = createElement("div");
+        //   infoDiv.setAttribute("class", "info-box");
+        
+
+        // var infoUrl = document.createElement("p");
+        // infoUrl.textContent = (song["permalink_url"]);
+        // this.appendChild(infoUrl);
       }
 
       function doSearch() {
@@ -36,25 +48,26 @@
             var catalog = document.getElementById("catalog");
             var image = document.createElement("img");
               image.setAttribute("src", (tracks[track]["artwork_url"]));
-            var box = document.createElement("div");
-              box.setAttribute("class", "box");
             var title = document.createElement("p");
               title.textContent = (tracks[track]["title"]);
-
-            box.onclick=showInfo(tracks[track])
-              
-            
 
             if(tracks[track]["artwork_url"]) {
               catalog.appendChild(box);
                 box.appendChild(image);
-                box.appendChild(title)
+                box.appendChild(title);
+                box.setAttribute("onclick", "showInfo('tracks[track]')");
+
               
-            }
-            console.log(tracks[track]);
+            } 
+
+            //console.log(tracks[track]);
+
           }
         });
       };
+
+
+
     </script>
   </body>
 
